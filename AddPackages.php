@@ -78,7 +78,7 @@ $conn = mysqli_connect($host,$user,$pass,$db);
       <td><?=$item['price'];?></td>
       <td><?=$item['description'];?></td>
       <td>
-        <img src="images/<?=$item['image'];?>" width="100px" height="100px" alt="<?=$item['image'];?>">
+        <img src="images<?=$item['image'];?>" width="100px" height="100px" alt="<?=$item['image'];?>">
         </td>
                             </tr>
 
