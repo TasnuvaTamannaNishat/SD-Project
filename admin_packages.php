@@ -14,7 +14,7 @@ $conn = mysqli_connect($host,$user,$pass,$db);
     $description = $_POST['description'];
 
     $image=$_FILES['image'] ['name'] ;
-    $path="../images/";
+    $path="images";
     $image_ext = pathinfo($image,PATHINFO_EXTENSION);
     $filename = time().'.' .$image_ext;
 
