@@ -1,0 +1,170 @@
+
+*{
+    margin:0;
+    padding: 10px;
+    box-sizing:border-box;
+
+}
+body{
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+}
+.container{
+    width:400px;
+    position:relative;
+    background:white;
+    border-radius:5px;
+    padding:40px 30px;
+    background:rgb(190, 165, 223);
+
+    border-radius: 30px;
+}
+.container .login-email .input-group{
+    width:100%;
+    height:50px;
+    margin-bottom:25px;
+}
+.container .login-email .input-group input{
+    width:100%;
+    height:100%;
+    border:2 px solid white;
+    padding:15px 20px;
+    font-size:18px;
+    border-radius:30px;
+    background:transparent;
+    outline:none;
+    background: url(../images/admin.jpg) no-repeat;
+
+
+
+ 
+}
+.login-email{
+    text-align:center;
+    font-size: 1.8rem;
+    color:black;
+    font-style:bold;
+    font-weight:800px;
+
+
+}
+.container .login-email .input-group input:focus{
+    background:rgb(190, 165, 223);
+}
+.btn{
+    display:block;
+    position:absolute;
+    width:300px;
+    background-image: cadetblue;
+    padding:15px 20px;
+    text-align:center;
+    border:none;
+    margin-top: 30px;;
+    background-color: white;
+    outline:none;
+    border-radius: 30px;
+    color:rgb(97, 47, 163);
+    font-size: 1.3rem;
+
+    bottom:20px;
+
+
+
+}
+
+.login-register-text{
+    font-size: 18px;
+}
+.login-register-text a{
+    color:white;
+
+}
+.user{
+    border-radius: 30px;
+
+
+}
+
+ 
+
+select{
+    color:rgb(110, 100, 100);
+    font-size:18px;
+    padding:10px 15px;
+    border-radius:30px;
+    outline:none;
+
+}
+.book-form{
+    padding:2rem;
+    background: var(--light-bg);
+    
+
+}
+.book-form .flex{
+    display:flex;
+   flex-wrap:wrap;
+   gap:2rem; 
+}
+.book-form .flex .inputBox{
+    flex:1 1 41 rem;
+}
+.book-form .flex .inputBox input{
+    width:100%;
+    padding:1.2rem 1.6rem;
+    font-size:1.6rem;
+    color:var(--light-black);
+    text-transform: none;
+    margin-top:1.5rem;
+
+}
+.header{
+    position: sticky;
+    top:0; left:0; right:0;
+    z-index: 1000;
+   
+    
+ }
+
+ .header .flex{
+   display:flex;
+   align-items: center;
+   padding:2rem;
+   justify-items: space-between;
+   position:relative;
+   
+ }
+
+ .header .logo{
+    font-size: 2.5rem;
+    color:blue;
+    margin-right: 170px;
+ }
+ .header .navbar a{
+    font-size: 1.3rem;
+    margin-left: 2rem;
+    color:var(--black);
+ }
+ 
+ .header .navbar a:hover{
+    color:var(--main-color);
+ }
+
+:root{
+   --main-color:#8e44ad;
+   --black:#222;
+   --white:#fff;
+   --light-black:#777;
+   --light-white:#fff9;
+   --dark-bg:rgba(0,0,0,.7);
+   --light-bg:#eee;
+   --border:.1rem solid var(--black);
+   --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+   --text-shadow:0 1.5rem 3rem rgba(0,0,0,.3);
+}
+
+
+
