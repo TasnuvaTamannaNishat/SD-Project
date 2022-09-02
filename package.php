@@ -1,3 +1,9 @@
+
+<?php
+session_start();
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,8 +33,30 @@
       <a href="about.php">about</a>
       <a href="package.php">package</a>
       <a href="book.php">book now</a>
-      <a href="login.php">Log in</a>
+     
       <a href="contact.php">Contact Us</a>
+      <a href="contact.php">Contact Us</a><?php
+      if(isset($_SESSION['auth']))
+      {
+         ?>
+         
+          <a href="logout.php">LogOut</a>
+          <a href="profile.php">MyProfile</a>
+
+
+
+         <?php
+
+
+      }
+      else{
+         ?> 
+
+         <a href="login.php">Log in</a>
+         <?php
+      }
+      
+      ?>
       
     
    </nav>
