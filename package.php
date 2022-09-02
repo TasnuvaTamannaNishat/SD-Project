@@ -1,9 +1,4 @@
 
-<?php
-session_start();
-
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -69,165 +64,57 @@ session_start();
 <div class="heading" style="background:url(images/pf.jpg) no-repeat">
    <h1>packages</h1>
 </div>
-
+                   
 <!-- packages section starts  -->
 
 <section class="packages">
 
 
 <h1 class="heading-title">destinations</h1>
-    
+<?php
+session_start();
+$host="localhost";
+$user="root";
+$pass="";
+$db="user_db";
+$conn = mysqli_connect($host,$user,$pass,$db);
+?>
+<div class ="row">
+<?php
+$query="SELECT * FROM packages WHERE status='0'";
+$query_run=mysqli_query($conn,$query);
+if(mysqli_num_rows($query_run)>0)
+{
+        
+   foreach($query_run as $item)
+   {
+      ?>
+      <div class="box-container">
 
-
-   <div class="box-container">
-
-      <div class="box">
-         <div class="image">
-            <img src="images/pack1.jpg" alt="">
-         </div>
-         <div class="content">
-            <h3>adventure & tour</h3>
-            <div class="price"> $1500.00 <span>$2200.00</span> </div>
-            <p>Create the most beautiful memories with us !</p>
-            <a href="book.php" class="btn">book now</a>
-         </div>
-      </div>
-
-      <div class="box">
-         <div class="image">
-            <img src="images/pack2.webp" alt="">
-         </div>
-         <div class="content">
-            <h3>adventure & tour</h3>
-            <div class="price"> $1500.00 <span>$2200.00</span> </div>
-            <p>Create the most beautiful memories with us !</p>
-            <a href="book.php" class="btn">book now</a>
-         </div>
-      </div>
-
-      <div class="box">
-         <div class="image">
-            <img src="images/pack3.webp" alt="">
-         </div>
-         <div class="content">
-            <h3>adventure & tour</h3>
-            <div class="price"> $1500.00 <span>$2200.00</span> </div>
-            <p>Create the most beautiful memories with us !</p>
-           
-            <a href="book.php" class="btn">book now</a>
-         </div>
-      </div>
-
-      <div class="box">
-         <div class="image">
-            <img src="images/pistan.webp" alt="">
-         </div>
-         <div class="content">
-            <h3>adventure & tour</h3>
-            <div class="price"> $1500.00 <span>$2200.00</span> </div>
-            <p>Create the most beautiful memories with us !</p>
-            <a href="book.php" class="btn">book now</a>
-         </div>
-      </div>
-
-      <div class="box">
-         <div class="image">
-            <img src="images/tokyotower.webp" alt="">
-         </div>
-         <div class="content">
-            <h3>adventure & tour</h3>
-            <div class="price"> $1500.00 <span>$2200.00</span> </div>
-            <p>Create the most beautiful memories with us !</p>
-            <a href="book.php" class="btn">book now</a>
-         </div>
-      </div>
-
-      <div class="box">
-         <div class="image">
-            <img src="images/greece.jpg" alt="">
-         </div>
-         <div class="content">
-            <h3>adventure & tour</h3>
-            <div class="price"> $1500.00 <span>$2200.00</span> </div>
-            <p>Create the most beautiful memories with us !</p>
-            <a href="book.php" class="btn">book now</a>
-         </div>
-      </div>
-
-      <div class="box">
-         <div class="image">
-            <img src="images/cox.webp" alt="">
-         </div>
-         <div class="content">
-            <h3>adventure & tour</h3>
-            <div class="price"> $1500.00 <span>$2200.00</span> </div>
-            <p>Create the most beautiful memories with us !</p>
-            <a href="book.php" class="btn">book now</a>
-         </div>
-      </div>
-
-      <div class="box">
-         <div class="image">
-            <img src="images/gyeongbokgung.webp" alt="">
-         </div>
-         <div class="content">
-            <h3>adventure & tour</h3>
-            <div class="price"> $1500.00 <span>$2200.00</span> </div>
-            <p>Create the most beautiful memories with us !</p>
-            <a href="book.php" class="btn">book now</a>
-         </div>
-      </div>
-
-      <div class="box">
-         <div class="image">
-            <img src="images/singa.webp" alt="">
-         </div>
-         <div class="content">
-            <h3>adventure & tour</h3>
-            <div class="price"> $1500.00 <span>$2200.00</span> </div>
-            <p>Create the most beautiful memories with us !</p>
-            <a href="book.php" class="btn">book now</a>
-         </div>
-      </div>
-
-      <div class="box">
-         <div class="image">
-            <img src="images/img-10.jpg" alt="">
-         </div>
-         <div class="content">
-            <h3>adventure & tour</h3>
-            <div class="price"> $1500.00 <span>$2200.00</span> </div>
-            <p>Create the most beautiful memories with us !</p>
-            <a href="book.php" class="btn">book now</a>
-         </div>
-      </div>
-
-      <div class="box">
-         <div class="image">
-            <img src="images/img-11.jpg" alt="">
-         </div>
-         <div class="content">
-            <h3>adventure & tour</h3>
-            <div class="price"> $1500.00 <span>$2200.00</span> </div>
-            <p>Create the most beautiful memories with us !</p>
-            <a href="book.php" class="btn">book now</a>
-         </div>
-      </div>
-
-      <div class="box">
-         <div class="image">
-            <img src="images/img-12.jpg" alt="">
-         </div>
-         <div class="content">
-            <h3>adventure & tour</h3>
-            <div class="price"> $1500.00 <span>$2200.00</span> </div>
-            <p>Create the most beautiful memories with us !</p>
-            <a href="book.php" class="btn">book now</a>
-         </div>
-      </div>
-
+<div class="box">
+   <div class="image">
+   <img src="../images/<?=$item['image'];?>" alt="<?=$item['image'];?>">
    </div>
+   <div class="content">
+   <h3><?=$item['place'];?></h3>
+            <h3><?=$item['price'];?></h3>
+            <h3><?=$item['description'];?></h3>
+      <a href="book.php" class="btn">book now</a>
+   </div>
+</div>
+      <?php
+   }
+}
+else 
+{
+   echo "no data ";
+}
+ ?> 
+ </div>  
+<?php
 
+?>
+   
    
 
 </section>
