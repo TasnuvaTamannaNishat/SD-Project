@@ -1,11 +1,4 @@
-<?php
-session_start();
-$host="localhost";
-$user="root";
-$pass="";
-$db="user_db";
-$conn = mysqli_connect($host,$user,$pass,$db);
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -71,14 +64,53 @@ $conn = mysqli_connect($host,$user,$pass,$db);
 <div class="heading" style="background:url(images/pf.jpg) no-repeat">
    <h1>packages</h1>
 </div>
-
+                   
 <!-- packages section starts  -->
 
 <section class="packages">
 
 
 <h1 class="heading-title">destinations</h1>
-    
+<?php
+session_start();
+$host="localhost";
+$user="root";
+$pass="";
+$db="user_db";
+$conn = mysqli_connect($host,$user,$pass,$db);
+?>
+<div class ="row">
+<?php
+$query="SELECT * FROM packages WHERE status='0'";
+$query_run=mysqli_query($conn,$query);
+if(mysqli_num_rows($query_run)>0)
+{
+        
+   foreach($query_run as $item)
+   {
+      ?>
+      <div class="box-container">
+
+<div class="box">
+   <div class="image">
+   <img src="../images/<?=$item['image'];?>" alt="<?=$item['image'];?>">
+   </div>
+   <div class="content">
+   <h3><?=$item['place'];?></h3>
+            <h3><?=$item['price'];?></h3>
+            <h3><?=$item['description'];?></h3>
+      <a href="book.php" class="btn">book now</a>
+   </div>
+</div>
+      <?php
+   }
+}
+else 
+{
+   echo "no data ";
+}
+ ?> 
+ </div>  
 <?php
 
 ?>
