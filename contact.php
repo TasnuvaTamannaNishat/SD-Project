@@ -1,3 +1,30 @@
+
+<?php
+$host="localhost";
+$user="root";
+$pass="";
+$db="user_db";
+$conn = mysqli_connect($host,$user,$pass,$db);
+
+if(isset($_POST['submit'])){
+    $firstname=$_POST['firstname'];
+    $lastname=$_POST['lastname'];
+    $email=$_POST['email'];
+    $phone=$_POST['phone'];
+    $message=$_POST['message'];
+
+            $insert = "INSERT INTO contact_form (firstname,lastname,email,phone,message) VALUES ('$firstname','$lastname','$email','$phone','$message')";
+            mysqli_query($conn,$insert);
+            header('location:login.php');
+
+        } 
+      else
+         {     
+            echo'something went wrong try again';
+
+      }
+    
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,16 +33,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    
-   
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     
-    
     <link rel="stylesheet" href="css/contact.css" />
  
-
-    
     <link
         href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;1,300&family=Libre+Baskerville&family=Poppins&family=Raleway:ital,wght@0,500;1,200&family=Roboto+Mono&display=swap"
         rel="stylesheet">
@@ -90,13 +113,13 @@
                 Send Message
             </div>
 
-            <form action="data.php" method="POST">
+            <form action="" method="POST">
                 <div class="field name-container">
                     <label for="first-name">Tell Us Your Name *</label>
                     <div class="field-name">
-                        <input type="text" id="first-name" name="usernamefirst" value=""
+                        <input type="text" id="first-name" name="firstname" value=""
                             class="form-control first-name" placeholder="First Name" required />
-                        <input type="text" id="last-name" name="usernamesecond" value=""
+                        <input type="text" id="last-name" name="lastname" value=""
                             class="form-control last-name" placeholder="Last Name" required />
                     </div>
                 </div>
@@ -116,7 +139,7 @@
                         placeholder="Enter your message here..." required></textarea>
                 </div>
                 <div class="field">
-                    <input type="submit" class="button" value="Send Message" />
+                    <input type="submit" class="button" name="submit"  value="Send Message" />
                 </div>
             </form>
         </div>

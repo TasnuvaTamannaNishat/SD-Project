@@ -1,3 +1,9 @@
+<?php
+session_start();
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,6 +23,31 @@
 <body>
    
 <!-- header  -->
+<div class="container">
+   <div class="row">
+   <div class="col-md-12">  
+
+
+<?php  
+
+         if(isset($_SESSION['auth']))
+        
+         {  
+              ?>
+            <div class="toast align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
+               <div class="d-flex">
+                  <div class="toast-body">
+                  Hello, world! This is a toast message.
+                  </div>
+                  <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+               </div>
+            </div>
+            <?php
+         };
+          ?>
+           </div>
+         </div>
+         </div>
 
 <section class="header">
 
@@ -28,8 +59,32 @@
       <a href="about.php">about</a>
       <a href="package.php">package</a>
       <a href="book.php">book now</a>
-      <a href="login.php">Log in</a>
       <a href="contact.php">Contact Us</a>
+      <?php
+      if(isset($_SESSION['auth']))
+      {
+         ?>
+         
+          <a href="logout.php">LogOut</a>
+          <a href="profile.php">MyProfile</a>
+
+
+
+         <?php
+
+
+      }
+      else{
+         ?> 
+
+         <a href="login.php">Log in</a>
+         <?php
+      }
+      
+      ?>
+     
+     
+   
       
     
    </nav>
@@ -124,13 +179,7 @@
       We’re a worker-claimed travel organization secured by our qualities, trustworthiness, and commitment to client benefit.<br>
       We offer the best limits on our top-rated visit bundles to clients who pick our viable administrations over and over. How about we remind you indeed that we don’t expect to be your visit and travel specialists; we endeavor to be your vacation accomplices until the end of time.
       </p>
-   
-   
-
-      <a href="about.php" class="btn"> <span> </span>
-   <span></span>
-   <span></span>
-   <span></span>read more</a>
+      <a href="about.php" class="btn">read more</a>
    </div>
 
 </section>
@@ -194,7 +243,7 @@
 
    </div>
 
-   <div class="load-more"> <a href="package.php" class="btn">See more</a> </div>
+   <div class="load-more"> <a href="login.php" class="btn">See more</a> </div>
 
 </section>
 
@@ -203,8 +252,8 @@
 
 <section class="home-offer">
    <div class="content">
-      <h3>upto 30% off in this summer </h3>
-      <p>Book your package now get upto 30% discout in this and many more exciting offers.</p>
+      <h3>upto 30% off</h3>
+      <p>Book your package now get upto 30% discout and many more exciting offers.</p>
       <a href="book.php" class="btn">book now</a>
    </div>
 </section>
@@ -268,3 +317,4 @@
 
 
 
+</html>
