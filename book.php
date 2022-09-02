@@ -1,3 +1,42 @@
+<?php
+
+session_start();
+
+
+
+$host="localhost";
+$user="root";
+$pass="";
+$db="user_db";
+$conn = mysqli_connect($host,$user,$pass,$db);
+
+if(isset($_POST['send'])){
+    $name=$_POST['name'];
+    $email=$_POST['email'];
+    $phone=$_POST['phone'];
+    $address=$_POST['address'];
+    $location=$_POST['location'];
+    $guests=$_POST['guests'];
+    $arrivals=$_POST['arrivals'];
+    $leaving=$_POST['leaving'];
+    
+    
+    
+            $insert = "INSERT INTO book_form (name,email,phone,address,location,guests,arrivals,leaving) VALUES ('$name','$email','$phone','$address','$location','$guests','$arrivals','$leaving')";
+            mysqli_query($conn,$insert);
+            header('location:login.php');
+
+        } 
+      else
+         {     
+            echo'something went wrong try again';
+
+      }
+    
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,9 +65,41 @@
       <a href="home.php">home</a>
       <a href="about.php">about</a>
       <a href="package.php">package</a>
-      <a href="book.php">book now</a>
-      <a href="login.php">Log in</a>
+      <a href="book.php">book now
+
+   
+
+      </a>
+
+   
       <a href="contact.php">Contact Us</a>
+      <?php
+      if(isset($_SESSION['auth']))
+      {
+         ?>
+         
+          <a href="logout.php">LogOut</a>
+          <a href="profile.php">MyProfile</a>
+
+
+
+         <?php
+
+
+      }
+      else{
+         ?> 
+
+         <a href="login.php">Log in</a>
+         <?php
+      }
+      
+      ?>
+     
+     
+   
+      
+    
       
     
    </nav>
@@ -48,40 +119,40 @@
 
    <h1 class="heading-title">Booking Agreement</h1>
 
-   <form action="book_form.php" method="post" class="book-form">
+   <form action="" method="post" class="book-form">
 
       <div class="flex">
          <div class="inputBox">
             <span>name :</span>
-            <input type="text" placeholder="enter your name" name="name">
+            <input type="text" placeholder="enter your name" name="name"  required>
          </div>
          <div class="inputBox">
             <span>email :</span>
-            <input type="email" placeholder="enter your email" name="email">
+            <input type="email" pattern=".+@gmail\.com"  placeholder="enter your email" name="email"  required>
          </div>
          <div class="inputBox">
             <span>phone :</span>
-            <input type="number" placeholder="enter your number" name="phone">
+            <input type="tel"  pattern="^(?:\+?88)?01[13-9]\d{8}" placeholder="enter your number" name="phone" required>
          </div>
          <div class="inputBox">
             <span>address :</span>
-            <input type="text" placeholder="enter your address" name="address">
+            <input type="text" placeholder="enter your address" name="address" required>
          </div>
          <div class="inputBox">
             <span>where to :</span>
-            <input type="text" placeholder="place you want to visit" name="location">
+            <input type="text" placeholder="place you want to visit" name="location" required>
          </div>
          <div class="inputBox">
             <span>how many :</span>
-            <input type="number" placeholder="number of guests" name="guests">
+            <input type="number" placeholder="number of guests" name="guests" required>
          </div>
          <div class="inputBox">
             <span>arrivals :</span>
-            <input type="date" name="arrivals">
+            <input type="date" name="arrivals" required>
          </div>
          <div class="inputBox">
             <span>leaving :</span>
-            <input type="date" name="leaving">
+            <input type="date" name="leaving" required>
          </div>
       </div>
 

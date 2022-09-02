@@ -1,4 +1,9 @@
-<!DOCTYPE html>
+
+<?php
+session_start();
+
+
+?><!DOCTYPE html>
 <html lang="en">
 <head>
    <meta charset="UTF-8">
@@ -29,8 +34,30 @@
       <a href="about.php">about</a>
       <a href="package.php">package</a>
       <a href="book.php">book now</a>
-      <a href="login.php">Log in</a>
+     
       <a href="contact.php">Contact Us</a>
+      <?php
+      if(isset($_SESSION['auth']))
+      {
+         ?>
+         
+          <a href="logout.php">LogOut</a>
+          <a href="profile.php">MyProfile</a>
+
+
+
+         <?php
+
+
+      }
+      else{
+         ?> 
+
+         <a href="login.php">Log in</a>
+         <?php
+      }
+      
+      ?>
       
     
    </nav>
@@ -70,7 +97,7 @@
 
 <section class="service" id="service">
 
-<h1 class="head">
+    <h1 class="head">
         <span>s</span>
         <span>e</span>
         <span>r</span>
@@ -134,17 +161,8 @@
 <!-- reviews section starts  -->
 
 <section class="reviews">
-<h1 class="head">
 
-        <span>C</span>
-        <span>u</span>
-        <span>s</span>
-        <span>t</span>
-        <span>o</span>
-        <span>m</span>
-        <span>e</span>
-        <span>r</span>
-        <br>
+<h1 class="head">
         <span>r</span>
         <span>e</span>
         <span>v</span>
