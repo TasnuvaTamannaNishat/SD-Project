@@ -21,9 +21,6 @@ $conn = mysqli_connect($host,$user,$pass,$db);
    <link type="text/css" rel="stylesheet" href="css/design3.css">
    
 
-   
-  
-
 </head>
 <body>
 <form action="" method="post" enctype="multipart/form-data">
@@ -33,7 +30,7 @@ $conn = mysqli_connect($host,$user,$pass,$db);
 
    <nav class="navbar">
       <a href="dashboard.php">Home</a>
-      <a href="admin_packages.php">Packages</a>
+      <a href="admin_packages.php">Add Packages</a>
       <a href="admin_bookings.php">Bookings</a>
       <a href="admin_users.php">users</a>
       <a href="admin_contacts.php">Messages</a>
@@ -78,7 +75,7 @@ $conn = mysqli_connect($host,$user,$pass,$db);
       <td><?=$item['price'];?></td>
       <td><?=$item['description'];?></td>
       <td>
-        <img src="images<?=$item['image'];?>" width="100px" height="100px" alt="<?=$item['image'];?>">
+        <img src="../images/<?=$item['image'];?>" width="100px" height="100px" alt="<?=$item['image'];?>">
         </td>
                             </tr>
 
