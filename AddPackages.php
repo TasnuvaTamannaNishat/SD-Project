@@ -36,6 +36,7 @@ $conn = mysqli_connect($host,$user,$pass,$db);
       <a href="admin_packages.php">Packages</a>
       <a href="admin_bookings.php">Bookings</a>
       <a href="admin_users.php">users</a>
+      <a href="admin.php">Admins</a>
       <a href="admin_contacts.php">Messages</a>
      
    </nav>

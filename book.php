@@ -140,8 +140,29 @@ if(isset($_POST['send'])){
          </div>
          <div class="inputBox">
             <span>where to :</span>
-            <input type="text" placeholder="place you want to visit" name="location" required>
-         </div>
+            <select class="input-group" class="user" name="user_type">
+            <link rel="stylesheet" href="css/design.css">
+                <option>Select any option</option>
+                <?php
+                $query="select * from packages";
+                $result=mysqli_query($conn,$query);
+                if(mysqli_num_rows($result)>0){
+
+                  while($row=mysqli_fetch_array($result)){?>
+                   
+                     <option><?php echo $row['place'] ?></option>;
+                   
+<?php
+            
+                  
+                }
+               }
+
+
+              ?>
+            </select> 
+    
+      </div>
          <div class="inputBox">
             <span>how many :</span>
             <input type="number" placeholder="number of guests" name="guests" required>

@@ -6,6 +6,11 @@ $pass="";
 $db="user_db";
 $conn = mysqli_connect($host,$user,$pass,$db);
 
+
+
+
+    
+    
 if(isset($_POST['submit'])){
   
     $email=mysqli_real_escape_string($conn,$_POST['email']);
@@ -20,8 +25,12 @@ if(isset($_POST['submit'])){
     if(mysqli_num_rows($result)>0){
         $_SESSION['auth']=true;
         $row=mysqli_fetch_array($result);
-        $username=$userdata['name'];
-        $useremail=$userdata['email'];
+        $username=$row['name'];
+        $useremail=$row['email'];
+      
+         $verified=$row['verified'];
+         $user_type=$row['user_type'];
+
 
 
         $_SESSION['auth_user']=[
@@ -30,30 +39,49 @@ if(isset($_POST['submit'])){
           
 
         ];
+        
+            if($verified==1)
+            {
+                
+                if($user_type =='user')
+                {
+                echo  "<script>
+                alert('logged in successfully');
+                window.location.href='home.php';
+        
+                
+                </script>";
+                            
+                
+                }
+                
+                elseif($row['user_type']=='admin')
+                {
+                    
+                    echo  "<script>
+                    alert('logged in successfully');
+                    window.location.href='dashboard.php';
+            
+                    
+                    </script>";       
+                
+                }
+                    
+            
+            }
+            else{
+                echo  "<script>
+            alert('account yet not verified');
+            window.location.href='login.php';
+    
+            
+            </script>";
+            }
+
+        }   
+        
      
-        if($row['user_type']=='admin'){
-           
-            $_SESSION['message']="logged in successfully";
-            ?>
-           
-
-            <div class="toast align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="d-flex">
-                <div class="toast-body">
-                Hello, world! This is a toast message.
-            </div>
-                <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-            </div>
-            </div>
-
-            header('location:dashboard.php');
-            <?php
-        }
-        else if($row['user_type']=='user'){
-           
-            $_SESSION['message']="logged in successfully";
-            header('location:home.php');
-        }
+       
        
      
         
@@ -64,7 +92,7 @@ if(isset($_POST['submit'])){
     }
            
 
-};
+
 
 
 ?>
