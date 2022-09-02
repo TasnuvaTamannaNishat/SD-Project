@@ -1,7 +1,10 @@
 <?php
 session_start();
-
-
+$host="localhost";
+$user="root";
+$pass="";
+$db="user_db";
+$conn = mysqli_connect($host,$user,$pass,$db);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -76,157 +79,10 @@ session_start();
 
 <h1 class="heading-title">destinations</h1>
     
+<?php
 
-
-   <div class="box-container">
-
-      <div class="box">
-         <div class="image">
-            <img src="images/pack1.jpg" alt="">
-         </div>
-         <div class="content">
-            <h3>adventure & tour</h3>
-            <div class="price"> $1500.00 <span>$2200.00</span> </div>
-            <p>Create the most beautiful memories with us !</p>
-            <a href="book.php" class="btn">book now</a>
-         </div>
-      </div>
-
-      <div class="box">
-         <div class="image">
-            <img src="images/pack2.webp" alt="">
-         </div>
-         <div class="content">
-            <h3>adventure & tour</h3>
-            <div class="price"> $1500.00 <span>$2200.00</span> </div>
-            <p>Create the most beautiful memories with us !</p>
-            <a href="book.php" class="btn">book now</a>
-         </div>
-      </div>
-
-      <div class="box">
-         <div class="image">
-            <img src="images/pack3.webp" alt="">
-         </div>
-         <div class="content">
-            <h3>adventure & tour</h3>
-            <div class="price"> $1500.00 <span>$2200.00</span> </div>
-            <p>Create the most beautiful memories with us !</p>
-           
-            <a href="book.php" class="btn">book now</a>
-         </div>
-      </div>
-
-      <div class="box">
-         <div class="image">
-            <img src="images/pistan.webp" alt="">
-         </div>
-         <div class="content">
-            <h3>adventure & tour</h3>
-            <div class="price"> $1500.00 <span>$2200.00</span> </div>
-            <p>Create the most beautiful memories with us !</p>
-            <a href="book.php" class="btn">book now</a>
-         </div>
-      </div>
-
-      <div class="box">
-         <div class="image">
-            <img src="images/tokyotower.webp" alt="">
-         </div>
-         <div class="content">
-            <h3>adventure & tour</h3>
-            <div class="price"> $1500.00 <span>$2200.00</span> </div>
-            <p>Create the most beautiful memories with us !</p>
-            <a href="book.php" class="btn">book now</a>
-         </div>
-      </div>
-
-      <div class="box">
-         <div class="image">
-            <img src="images/greece.jpg" alt="">
-         </div>
-         <div class="content">
-            <h3>adventure & tour</h3>
-            <div class="price"> $1500.00 <span>$2200.00</span> </div>
-            <p>Create the most beautiful memories with us !</p>
-            <a href="book.php" class="btn">book now</a>
-         </div>
-      </div>
-
-      <div class="box">
-         <div class="image">
-            <img src="images/cox.webp" alt="">
-         </div>
-         <div class="content">
-            <h3>adventure & tour</h3>
-            <div class="price"> $1500.00 <span>$2200.00</span> </div>
-            <p>Create the most beautiful memories with us !</p>
-            <a href="book.php" class="btn">book now</a>
-         </div>
-      </div>
-
-      <div class="box">
-         <div class="image">
-            <img src="images/gyeongbokgung.webp" alt="">
-         </div>
-         <div class="content">
-            <h3>adventure & tour</h3>
-            <div class="price"> $1500.00 <span>$2200.00</span> </div>
-            <p>Create the most beautiful memories with us !</p>
-            <a href="book.php" class="btn">book now</a>
-         </div>
-      </div>
-
-      <div class="box">
-         <div class="image">
-            <img src="images/singa.webp" alt="">
-         </div>
-         <div class="content">
-            <h3>adventure & tour</h3>
-            <div class="price"> $1500.00 <span>$2200.00</span> </div>
-            <p>Create the most beautiful memories with us !</p>
-            <a href="book.php" class="btn">book now</a>
-         </div>
-      </div>
-
-      <div class="box">
-         <div class="image">
-            <img src="images/img-10.jpg" alt="">
-         </div>
-         <div class="content">
-            <h3>adventure & tour</h3>
-            <div class="price"> $1500.00 <span>$2200.00</span> </div>
-            <p>Create the most beautiful memories with us !</p>
-            <a href="book.php" class="btn">book now</a>
-         </div>
-      </div>
-
-      <div class="box">
-         <div class="image">
-            <img src="images/img-11.jpg" alt="">
-         </div>
-         <div class="content">
-            <h3>adventure & tour</h3>
-            <div class="price"> $1500.00 <span>$2200.00</span> </div>
-            <p>Create the most beautiful memories with us !</p>
-            <a href="book.php" class="btn">book now</a>
-         </div>
-      </div>
-
-      <div class="box">
-         <div class="image">
-            <img src="images/img-12.jpg" alt="">
-         </div>
-         <div class="content">
-            <h3>adventure & tour</h3>
-            <div class="price"> $1500.00 <span>$2200.00</span> </div>
-            <p>Create the most beautiful memories with us !</p>
-            <a href="book.php" class="btn">book now</a>
-         </div>
-      </div>
-
-   </div>
-
+?>
+   
    
 
 </section>

@@ -12,14 +12,14 @@ $conn = mysqli_connect($host,$user,$pass,$db);
     $place = $_POST['place'];
     $price = $_POST['price'];
     $description = $_POST['description'];
-
+    $status = isset($_POST['status']) ? '1':'0';
     $image=$_FILES['image'] ['name'] ;
     $path="images";
     $image_ext = pathinfo($image,PATHINFO_EXTENSION);
     $filename = time().'.' .$image_ext;
 
     $pack_query="INSERT INTO packages 
-    (place,price,description,image)  Values('$place','$price','$description','$filename')";
+    (place,price,description,status,image)  Values('$place','$price','$description','$status',$filename')";
 
     $pack_query_run = mysqli_query($conn,$pack_query);
       if($pack_query_run) {
@@ -50,12 +50,7 @@ $conn = mysqli_connect($host,$user,$pass,$db);
 
 </head>
 <body>
-  <a href="dashboard.php">Home</a>
-      <a href="admin_packages.php">Packages</a>
-      <a href="admin_bookings.php">Bookings</a>
-      <a href="users.php">users</a>
-      <a href="admin.php">Admins</a>
-      <a href="messages.php">Messages</a>
+  
      
 
   
@@ -78,6 +73,10 @@ $conn = mysqli_connect($host,$user,$pass,$db);
     <div class="mb-3">
       <label for="formFile" class="form-label">Choose pic</label>
       <input class="form-control" type="file" name="image" id="formFile">
+    </div>
+    <div class="mb-3">
+      <label for="">Status</label>
+      <input type="checkbox" name="status">
     </div>
     <div class="mb-3">
     <button type="submit"class= "btn btn-primary" name="submit">Save</button>
