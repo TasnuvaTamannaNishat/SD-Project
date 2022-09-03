@@ -6,6 +6,60 @@ $user="root";
 $pass="";
 $db="user_db";
 $conn = mysqli_connect($host,$user,$pass,$db);
+$update=  " UPDATE user_form SET verified = 0 WHERE  email='ish@gmail.com' ";
+
+
+
+
+$query="INSERT INTO user_form (name,email,password,user_type,vkey,verified) VALUES ('name','email','pass','user_type','vkey','1')";
+$result=mysqli_query($conn,$update);
+
+//Import PHPMailer classes into the global namespace
+//These must be at the top of your script, not inside a function
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+//Load Composer's autoloader
+function sendMail($email,$vkey )
+{
+    require ('PHPMailer/PHPMailer.php');
+require ('PHPMailer/SMTP.php');
+require ('PHPMailer/Exception.php');
+$mail = new PHPMailer(true);
+
+try {
+    //Server settings
+                         //Enable verbose debug output
+    $mail->isSMTP();                                            //Send using SMTP
+    $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+    $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+    $mail->Username   = 'tasnuvanishat163@gmail.com';                     //SMTP username
+    $mail->Password   = 'xjlhingxbpopqjck';                               //SMTP password
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+    $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+
+    //Recipients
+    $mail->setFrom('tasnuvanishat163@gmail.com');
+    $mail->addAddress($email);     //Add a recipient
+    
+    
+
+    //Content
+    $mail->isHTML(true);                                  //Set email format to HTML
+    $mail->Subject = 'Email verification';
+    $mail->Body    = "here is the verification link <a href='http://localhost:3000/verify.php?email=$email&vkey=$vkey'>verify</a>";
+    
+
+    $mail->send();
+  return true;
+} catch (Exception $e) {
+    return false;
+}
+
+
+}
+
 
 if(isset($_POST['submit'])){
     $name=mysqli_real_escape_string($conn,$_POST['username']);
@@ -15,6 +69,9 @@ if(isset($_POST['submit'])){
     $cpass=md5($_POST['cpassword']);
    
     $user_type='user';
+    $vkey=md5(time().$name);
+   
+    echo $vkey;
     
     $select="SELECT * FROM user_form WHERE email='$email' && password='$pass' ";
     $result=mysqli_query($conn,$select);
@@ -28,16 +85,26 @@ if(isset($_POST['submit'])){
             $_SESSION['message']='password not matched';
            
         }else{
-            $insert = "INSERT INTO user_form (name,email,password,user_type) VALUES ('$name','$email','$pass','$user_type')";
+            $insert = "INSERT INTO user_form (name,email,password,user_type,vkey) VALUES ('$name','$email','$pass','$user_type','$vkey')";
             $insert_run= mysqli_query($conn,$insert);
            
         
 
-            if($insert_run){
+            if($insert_run && sendMail($_POST['email'],$vkey)){
                 $_SESSION['message']="registered Successfully";
+                //Create an instance; passing `true` enables exceptions
                 
-                header('location:login.php');
+
                 
+                echo  "<script>
+                alert('Registered successfully');
+                window.location.href='login.php';
+          
+                
+                </script>";
+              
+                
+              
             }
 
         } 
