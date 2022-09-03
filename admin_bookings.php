@@ -66,9 +66,7 @@ $conn = mysqli_connect($host,$user,$pass,$db);
                             <th>Guests</th>
                             <th>Arrivals</th>
                             <th>Leaving</th>
-                            
-                            
-                          
+                     
                         </tr>
                     </thead>
                     <tbody>

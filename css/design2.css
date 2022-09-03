@@ -10,7 +10,7 @@ body{
     display:flex;
     justify-content:center;
     align-items: center;
-    background: url(../images/bg1.jpg) no-repeat;
+    background: url(../images/lg.jpg) no-repeat;
     background-size: cover;
    background-position: center;
 }
@@ -20,7 +20,7 @@ body{
     background:white;
     border-radius:5px;
     padding:40px 30px;
-    background:url(../images/bg2.jpg) no-repeat;;
+    background:black no-repeat;;
 
     border-radius: 30px;
 }
