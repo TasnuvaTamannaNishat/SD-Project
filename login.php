@@ -25,8 +25,10 @@ if(isset($_POST['submit'])){
     if(mysqli_num_rows($result)>0){
         $_SESSION['auth']=true;
         $row=mysqli_fetch_array($result);
+        $roww=mysqli_fetch_assoc($result);
         $username=$row['name'];
         $useremail=$row['email'];
+        $_SESSION['user_id'] = $roww['id'];
       
          $verified=$row['verified'];
          $user_type=$row['user_type'];
