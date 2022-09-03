@@ -6,13 +6,11 @@ $user="root";
 $pass="";
 $db="user_db";
 $conn = mysqli_connect($host,$user,$pass,$db);
-$update=  " UPDATE user_form SET verified = 0 WHERE  email='ish@gmail.com' ";
 
 
 
 
-$query="INSERT INTO user_form (name,email,password,user_type,vkey,verified) VALUES ('name','email','pass','user_type','vkey','1')";
-$result=mysqli_query($conn,$update);
+
 
 //Import PHPMailer classes into the global namespace
 //These must be at the top of your script, not inside a function
