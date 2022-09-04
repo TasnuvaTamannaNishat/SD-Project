@@ -80,7 +80,7 @@ if(isset($_POST['submit'])){
 
       <input type="text"  value="<?= $item['name']?>" name="update_name" class="form-control" id="exampleFormControlInput1" placeholder="">
 
-      <input type="text" value="<?= $row['name']?>" name="update_name" class="form-control" id="exampleFormControlInput1" placeholder="">
+      
 
     </div>
     <div class="mb-3">
