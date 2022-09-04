@@ -1,4 +1,7 @@
+<?php
 
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -72,7 +75,7 @@
 
 <h1 class="heading-title">destinations</h1>
 <?php
-session_start();
+
 $host="localhost";
 $user="root";
 $pass="";
