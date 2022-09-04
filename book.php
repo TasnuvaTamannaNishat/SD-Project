@@ -2,8 +2,6 @@
 
 session_start();
 
-
-
 $host="localhost";
 $user="root";
 $pass="";
@@ -95,7 +93,7 @@ if(isset($_POST['send'])){
       }
       
       ?>
-   
+       
     
    </nav>
 
@@ -229,8 +227,3 @@ if(isset($_POST['send'])){
 
 </body>
 </html>
-
-
-
-
-

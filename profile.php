@@ -1,19 +1,11 @@
 <?php
-
-
 session_start();
 $host="localhost";
 $user="root";
 $pass="";
 $db="user_db";
 $conn = mysqli_connect($host,$user,$pass,$db);
-
 $user_id=$_SESSION['user_id'] ;
-
-
-
-
-
 if(isset($_POST['submit'])){
 
    $update_name = mysqli_real_escape_string($conn, $_POST['update_name']);
@@ -42,9 +34,6 @@ if(isset($_POST['submit'])){
 
       }
    }
-
-  
-
 
 }
 
@@ -81,7 +70,7 @@ if(isset($_POST['submit'])){
     </div>
     <div class="mb-3">
       <label for="exampleFormControlInput1" class="form-label">Name</label>
-      <input type="text"  value="<?= $row['name']?>" name="update_name" class="form-control" id="exampleFormControlInput1" placeholder="">
+      <input type="text" value="<?= $row['name']?>" name="update_name" class="form-control" id="exampleFormControlInput1" placeholder="">
     </div>
     <div class="mb-3">
       <label for="exampleFormControlInput1" class="form-label">Email</label>
