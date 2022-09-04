@@ -1,3 +1,13 @@
+<?php
+session_start();
+$host="localhost";
+$user="root";
+$pass="";
+$db="user_db";
+$conn = mysqli_connect($host,$user,$pass,$db);
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,8 +43,61 @@
   <div class="row">
   
     <div class="col"style="font-size:30px;">total users</div>
+    <div class="box">
+         <?php 
+            $select_users = mysqli_query($conn, "SELECT * FROM  user_form WHERE user_type = 'user'") or die('query failed');
+            $number_of_users = mysqli_num_rows($select_users);
+            
+         ?>
+         <h3><?php echo $number_of_users;?></h3>
+
+      </div>
     <div class="col"style="font-size:30px;">bookings</div>
-    <div class="col"style="font-size:30px;">users</div>
+    <div class="box">
+         <?php 
+            $select_users = mysqli_query($conn, "SELECT * FROM  book_form ") or die('query failed');
+            $number_of_bookings = mysqli_num_rows($select_users);
+            
+         ?>
+         <h3><?php echo $number_of_bookings;?></h3>
+
+      </div>
+        
+      <div class="col"style="font-size:30px;">Admins</div>
+    <div class="box">
+         <?php 
+            $select_users = mysqli_query($conn, "SELECT * FROM  user_form WHERE user_type = 'admin'") or die('query failed');
+            $number_of_admins = mysqli_num_rows($select_users);
+            
+         ?>
+         <h3><?php echo $number_of_admins;?></h3>
+
+      </div>
+  </div>
+
+  <div class="col"style="font-size:30px;">Total Packages</div>
+    <div class="box">
+         <?php 
+            $select_users = mysqli_query($conn, "SELECT * FROM  packages ") or die('query failed');
+            $number_of_Packages = mysqli_num_rows($select_users);
+            
+         ?>
+         <h3><?php echo $number_of_Packages;?></h3>
+
+      </div>
+      <div class="col"style="font-size:30px;">Total Messages</div>
+    <div class="box">
+         <?php 
+            $select_users = mysqli_query($conn, "SELECT * FROM  book_form ") or die('query failed');
+            $number_of_Packages = mysqli_num_rows($select_users);
+            
+         ?>
+         <h3><?php echo $number_of_Packages;?></h3>
+
+      </div>
+  </div>
+
+
   </div>
 
  

@@ -243,7 +243,7 @@ session_start();
 
    </div>
 
-   <div class="load-more"> <a href="login.php" class="btn">See more</a> </div>
+   <div class="load-more"> <a href="package.php" class="btn">See more</a> </div>
 
 </section>
 
