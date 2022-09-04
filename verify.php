@@ -5,7 +5,7 @@ $user="root";
 $pass="";
 $db="user_db";
 $conn = mysqli_connect($host,$user,$pass,$db);
-echo "hmm";
+
 
 
 if( isset($_GET['vkey']))
@@ -49,12 +49,7 @@ if( isset($_GET['vkey']))
 
         }
     
-    else
-    {
-
-
-    }
-
+    
 }
 
 ?>
