@@ -133,8 +133,7 @@ if(isset($_POST['send'])){
          </div>
          <div class="inputBox">
             <span>where to :</span>
-            <select class="input-group" class="user" name="location">
-            <link rel="stylesheet" href="css/design.css">
+            <select class="input-group" style="height:45px; width:500px">class="user" name="location">
                 <option>Select any option</option>
                 <?php
                 $query="select * from packages";
