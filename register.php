@@ -40,9 +40,7 @@ try {
     //Recipients
     $mail->setFrom('tasnuvanishat163@gmail.com');
     $mail->addAddress($email);     //Add a recipient
-    
-    
-
+  
     //Content
     $mail->isHTML(true);                                  //Set email format to HTML
     $mail->Subject = 'Email verification';
