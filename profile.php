@@ -5,13 +5,18 @@ $user="root";
 $pass="";
 $db="user_db";
 $conn = mysqli_connect($host,$user,$pass,$db);
+
+
+$email=$_SESSION['user_id'] ;
+
 $user_id=$_SESSION['user_id'] ;
+
 if(isset($_POST['submit'])){
 
    $update_name = mysqli_real_escape_string($conn, $_POST['update_name']);
    $update_email = mysqli_real_escape_string($conn, $_POST['update_email']);
 
-   mysqli_query($conn, "UPDATE user_form SET name = '$update_name', email = '$update_email' WHERE id = '$user_id'") or die('query failed');
+   mysqli_query($conn, "UPDATE user_form SET name = '$update_name', email = '$update_email' WHERE email='$email'") or die('query failed');
 
    $old_pass = $_POST['old_pass'];
   
@@ -23,7 +28,7 @@ if(isset($_POST['submit'])){
       if($new_pass != $confirm_pass){
          $message[] = 'confirm password not matched!';
       }else{
-         mysqli_query($conn, "UPDATE user_form SET password = '$confirm_pass' WHERE id = '$user_id'") or die('query failed');
+         mysqli_query($conn, "UPDATE user_form SET password = '$confirm_pass' WHERE email = '$email'") or die('query failed');
          $message[] = 'password updated successfully!';
          echo  "<script>
          alert('profile updated successfully');
@@ -50,35 +55,41 @@ if(isset($_POST['submit'])){
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
-    <?php
-     $user_id=$_SESSION['user_id'] ;
-  
-     $select="SELECT * FROM user_form WHERE id='$user_id' ";
-     $result=mysqli_query($conn,$select);
-     $row=mysqli_fetch_assoc($result);
-    
+   
+
+     <?php
+     $query="SELECT * from user_form where email='$email'";
+     $query_run=mysqli_query($conn,$query);
+     if(mysqli_num_rows($query_run)>0)
+     {
+         foreach($query_run as $item)
+         {
+             ?>
 
 
-?>
-
-<div class="container">
+            
+             <div class="container">
     <p class="login-text" style="font-size:40px; font-style:bold ;text-align:center"> User Information</p>
     <form action="" method="post" enctype="multipart/form-data">
     <div class="mb-3">
       <label for="exampleFormControlInput1" class="form-label">id</label>
-      <input type="text" value="<?= $user_id?>" name="id" class="form-control" id="exampleFormControlInput1" >
+      <input type="text" value="<?= $item['id']?>" name="id" class="form-control" id="exampleFormControlInput1" >
     </div>
     <div class="mb-3">
       <label for="exampleFormControlInput1" class="form-label">Name</label>
+
+      <input type="text"  value="<?= $item['name']?>" name="update_name" class="form-control" id="exampleFormControlInput1" placeholder="">
+
       <input type="text" value="<?= $row['name']?>" name="update_name" class="form-control" id="exampleFormControlInput1" placeholder="">
+
     </div>
     <div class="mb-3">
       <label for="exampleFormControlInput1" class="form-label">Email</label>
-      <input type="text"  value="<?= $row['email']?>" name="update_email" class="form-control" id="exampleFormControlInput1" placeholder="">
+      <input type="text"  value="<?= $item['email']?>" name="update_email" class="form-control" id="exampleFormControlInput1" placeholder="">
     </div>
     <div class="mb-3">
       <label for="exampleFormControlInput1" class="form-label">old password</label>
-      <input type="text" value="<?= $row['password']?>" name="old_pass" class="form-control" id="exampleFormControlInput1" placeholder=" old password">
+      <input type="text" value="<?= $item['password']?>" name="old_pass" class="form-control" id="exampleFormControlInput1" placeholder=" old password">
     </div>
 
     <div class="mb-3">
@@ -97,6 +108,17 @@ if(isset($_POST['submit'])){
      
     </form>
 </div>
+
+
+
+
+<?php
+         }
+        }
+    
+
+
+?>
 
 
 

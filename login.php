@@ -28,7 +28,7 @@ if(isset($_POST['submit'])){
         $roww=mysqli_fetch_assoc($result);
         $username=$row['name'];
         $useremail=$row['email'];
-        $_SESSION['user_id'] = $roww['id'];
+        $_SESSION['user_id'] =$email;
       
          $verified=$row['verified'];
          $user_type=$row['user_type'];
@@ -83,15 +83,20 @@ if(isset($_POST['submit'])){
         }   
         
      
-       
+        else{
+            echo  "<script>
+                alert('incorrect email or password');
+                window.location.href='login.php';
+        
+                
+                </script>";
+        }
        
      
         
      
     }
-    else{
-        $error[]='incorrect email or password';
-    }
+   
            
 
 

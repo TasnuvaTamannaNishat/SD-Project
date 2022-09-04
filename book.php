@@ -133,7 +133,7 @@ if(isset($_POST['send'])){
          </div>
          <div class="inputBox">
             <span>where to :</span>
-            <select class="input-group" class="user" name="user_type">
+            <select class="input-group" class="user" name="location">
             <link rel="stylesheet" href="css/design.css">
                 <option>Select any option</option>
                 <?php
@@ -143,7 +143,7 @@ if(isset($_POST['send'])){
 
                   while($row=mysqli_fetch_array($result)){?>
                    
-                     <option><?php echo $row['place'] ?></option>;
+                     <option name="location"><?php echo $row['place'] ?></option>;
                    
 <?php
             
