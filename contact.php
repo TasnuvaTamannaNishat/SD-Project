@@ -15,7 +15,7 @@ if(isset($_POST['submit'])){
 
             $insert = "INSERT INTO contact_form (firstname,lastname,email,phone,message) VALUES ('$firstname','$lastname','$email','$phone','$message')";
             mysqli_query($conn,$insert);
-            header('location:login.php');
+            header('location:home.php');
 
         } 
       else
